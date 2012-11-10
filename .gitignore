@@ -1,0 +1,6 @@
+backups/*
+elpa/*
+el-get/*
+custom.el
+*.elc
+*~

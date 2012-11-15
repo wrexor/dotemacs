@@ -187,7 +187,7 @@
    ;; magit and diff-mode 
    `(diff-file-header ((t (weight: bold :background ,soother-bg+3 ))))
    `(diff-hunk-header ((t ( :background ,soother-bg+2 ))))
-   `(magit-item-highlight ((t (:background ,soother-bg-1 ))))
+   `(magit-item-highlight ((t (:foreground nil :background ,soother-bg-1 ))))
    `(magit-diff-add ((t (:foreground ,soother-green ))))
    `(magit-diff-del ((t (:foreground ,soother-bg+3 ))))
    `(magit-diff-none ((t (:foreground ,soother-fg-1 :background ,soother-bg ))))

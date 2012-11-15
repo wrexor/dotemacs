@@ -7,6 +7,18 @@
   (untabify (point-min) (point-max)))
 
 
+(defun duplicate-line()
+  "copies the current lines and pastes it underneath"
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+
+
 ;; kills all buffers
 (defun kill-all-buffers ()
   "kill all buffers, leaving *scratch* only"

@@ -4,3 +4,6 @@ el-get/*
 custom.el
 *.elc
 *~
+#*
+/tramp
+/dev/*

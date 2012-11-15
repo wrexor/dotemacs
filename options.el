@@ -1,39 +1,29 @@
 ;; make my c++ purty
-(defun my-c++-mode-hook ()
-  (setq c-basic-offset 4)
-  (c-set-offset 'arglist-intro '+)
-  (c-set-offset 'arglist-close 0)
-  (c-set-offset 'substatement-open 0)
-  (c-set-offset 'innamespace 0))
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(add-hook 'c++-mode-hook 
+	  '(lambda ()
+	     (setq c-basic-offset 4)
+	     (c-set-offset 'arglist-intro '+)
+	     (c-set-offset 'arglist-close 0)
+	     (c-set-offset 'substatement-open 0)
+	     (c-set-offset 'innamespace 0)))
 
-;; hide the toolbar, splash screen and menubar
-(setq tool-bar-mode nil)
-(setq inhibit-splash-screen t)
-(menu-bar-mode -1)
-
-;; enable ido mode
-(ido-mode t)
-
-;; show column number
+;; basic ui options
 (setq column-number-mode t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-splash-screen t)
 
-;; remove git from vc
+(load-theme 'soother t)
+
+;; disable git from vc mode
 (setq vc-handled-backends (quote (RCS CVS SVN SCCS Bzr Hg Mtn Arch)))
-
-;; glsl mode
-;; (autoload 'glsl-mode "glsl-mode" nil t)
-;; (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
-;; (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
-;; (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
-;; (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
 
 ;; organize buffer menu by mode
 (setq mouse-buffer-menu-mode-mult 1)
 
 ;; overwrite the selection
 (delete-selection-mode 1)
-
 
 ;; stop that insane file system cluttering
 (setq backup-dir "~/.emacs.d/backups/")

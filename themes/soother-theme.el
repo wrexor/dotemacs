@@ -76,7 +76,7 @@
       (soother-bg+1 "#141414")
       (soother-bg+2 "#202020")
       (soother-bg+3 "#333333")
-      
+
       (soother-fg-1 "#666666")
       (soother-fg "#828282")
       (soother-fg+1 "#aaaaaa")
@@ -95,7 +95,7 @@
       (soother-brown "#9f621d")
       (soother-purple "#a878b5")
       (soother-white "#f5f5f5")
- 
+
       (soother-aqua-1 "#11535F")
       (soother-aqua "#00959e")
       )
@@ -135,7 +135,7 @@
    `(font-lock-type-face ((t (:foreground ,soother-red))))
    `(font-lock-variable-name-face ((t (:foreground ,soother-red))))
    `(font-lock-warning-face ((t (:foreground ,soother-red-1 ))))
-   
+
 
    ;;  Custom elements and widgets
    `(widget-field
@@ -184,12 +184,14 @@
    ;; Linum
    `(linum ((t (:foreground ,soother-fg :background ,alt-background :height 90 ))))
 
-   ;; magit and diff-mode 
+   ;; magit and diff-mode
    `(diff-file-header ((t (weight: bold :background ,soother-bg+3 ))))
    `(diff-hunk-header ((t ( :background ,soother-bg+2 ))))
-   `(magit-item-highlight ((t (:foreground nil :background ,soother-bg-1 ))))
-   `(magit-diff-add ((t (:foreground ,soother-green ))))
-   `(magit-diff-del ((t (:foreground ,soother-bg+3 ))))
+   `(diff-added ((t (:foreground ,soother-green :background ,soother-bg ))))
+   `(diff-removed ((t (:foreground ,soother-bg+3 :background ,soother-bg ))))
+   `(magit-item-highlight ((t (:inherit nil :background ,soother-bg-1 ))))
+   ;; `(magit-diff-add ((t (:foreground ,soother-green))))
+   ;;`(magit-diff-del ((t (:foreground ,soother-bg+3 ))))
    `(magit-diff-none ((t (:foreground ,soother-fg-1 :background ,soother-bg ))))
    `(magit-whitespace-warning-face ((t ( :background ,soother-yellow ))))
 
@@ -271,8 +273,9 @@
 (eval-after-load "rainbow-delimiters" '(soother-rainbow-delim-set-face))
 
 ;;;###autoload
-(when load-file-name
+(when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
+
 
 (provide-theme 'soother)

@@ -1,3 +1,4 @@
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 (load "~/.emacs.d/sources")
 
@@ -11,5 +12,4 @@
 ;; Store customizations in a file thats .gitignored
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file) (load custom-file))
-
 
